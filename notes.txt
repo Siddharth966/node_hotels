@@ -1,0 +1,248 @@
+nodemon........for install use npm i nodemon
+nodemon ek aisi smart librarry hai jo dekhta hai ki file mai ko changes ho rahi use automatically save karta hai aur use direct terminal pr run kr deta hai..
+
+...............................................
+
+(function(){
+  console.log("Prince is added")
+})();
+.......function ko run karne ke liye akhiri mai ek method block lagane se run ho jata hai . ye () block lagana compulsory hai
+
+callback function......call back function ek type ka normal function hota hi jisko ek dusra function call kr raha hota hai.
+  Callback is function that ids executed just after the execution of another function , it means the callback will wait untill its main function  is not executed.
+
+
+module.exports={}.....iske ander hum jo bhi function banate hai usko add karte hai comma ka use karke
+
+const notes  =require('./note.js');.......require ka use karke banaye gaye modules file ko import karte hai aur  usko kisi varaiable mai hold karte hai
+
+
+Npm package - lodash =====npm i lodash
+Widely used in librarry
+lots of function which is helpful to deal with data
+
+
+Server in node js...
+Server is a Person who communucates with people.
+
+Server is a program that runs on a computer and is responsible for sending and receiving data over the internet
+
+Server ---Waiter
+Database--chef
+
+JSON --JavaScript Object Notation....
+ It contains in { } inside the brackets
+ JSON is a lightweight data-interchange format.
+ It is easy for humans to read and write. 
+ It is easy for machines to parse and generate.
+ It is based on a subset of the JavaScript Programming Language.
+ It is structured and organiized Database
+ It is most context,JSON is a represented as a string.
+
+
+Create a server...
+ Creating a Server in NodeJs via express package
+ Express.js is populer framework for building web Application and APIs using node js
+
+ when you create an express.s application , you are setting up the foundation of handling incoming requests and defining how your application responds to them.
+
+ Localhost refers to your own computer.After creating a server in node.js , you can access your computer environment in 'localhost'.
+
+======>>>>>
+ const exoress = require('express')
+ const app = express();
+
+ app.listen(3000)
+
+Method of share data....
+ Now in the world of the develpment ,we need to deal with data.
+ How the data is send and recieved between a client (like a web browser) and a server(built with Node.js)
+
+ So there are lots of method to send and receive data according to their needs.
+   GET 
+   POST
+   PATCH
+   DELETE
+
+
+GET....
+  Imagine you want to read book on a library shelf.
+  You don't change any thing .
+  You just want get the information.
+  
+  Similarly, the get method is used to request data from the server.
+
+  For example...when you enter a website URL in your browser.  your browser  sends a GET request to the server to fetch the web pages.
+
+
+Mongodb querries(mongose)
+  to create a collection in mongodb databse name 'posts' ......
+    db.createCollection("posts")
+......................................................
+insertOne()
+To insert a single document, use the insertOne() method.
+
+This method inserts a single object into the database.
+
+   db.posts.insertOne({
+  title: "Post Title 1",
+  body: "Body of post.",
+  category: "News",
+  likes: 1,
+  tags: ["news", "events"],
+  date: Date()
+  })
+ 
+............................................................
+insertMany()
+To insert multiple documents at once, use the insertMany() method.
+
+This method inserts an array of objects into the database.
+
+  db.posts.insertMany([  
+    {
+     title: "Post Title 2",
+     body: "Body of post.",
+     category: "Event",
+     likes: 2,
+     tags: ["news", "events"],
+     date: Date()
+    },
+   {
+     title: "Post Title 3",
+     body: "Body of post.",
+     category: "Technology",
+     likes: 3,
+     tags: ["news", "events"],
+     date: Date()
+   },
+   { 
+     title: "Post Title 4",
+     body: "Body of post.",
+     category: "Event",
+     likes: 4,
+     tags: ["news", "events"],
+     date: Date()
+   }
+  ])
+ .................................................................
+For read the data in database used
+ find()
+
+  To select data from a collection in MongoDB, we can use the find() method.
+
+  This method accepts a query object. If left empty, all documents will be returned.
+
+  db.posts.find()
+
+ findOne()
+  To select only one document, we can use the findOne() method.
+ 
+    db.posts.findOne()
+
+........................................................................
+updateOne()
+
+  The updateOne() method will update the first document that is found matching the provided query.
+
+  Let's see what the "like" count for the post with the title of "Post Title 1":
+
+  Example..
+     db.posts.updateOne( { title: "Post Title 1" }, { $set: { likes: 2 } } )
+
+     aftre that
+     db.posts.find( { title: "Post Title 1" } )
+
+ updateMany()
+
+    The updateMany() method will update all documents that match the provided query.
+
+    Update likes on all documents by 1. For this we will use the $inc (increment) operator:
+      Example...
+       db.posts.updateMany({}, { $inc: { likes: 1 } })
+
+............................................................................
+deleteOne()
+
+  The deleteOne() method will delete the first document that matches the query provided.
+
+  Example
+  db.posts.deleteOne({ title: "Post Title 5" })
+
+deleteMany()
+  The deleteMany() method will delete all documents that match the query provided.
+
+  Example
+db.posts.deleteMany({ category: "Technology" })
+
+..........................................................................................
+
+Data design and Postman
+
+ we use the database we have to integrate MongoDB with NodeJs
+
+ Now currently we don't have a such frontend thing, so we are using Postman for This
+
+ Every frontend Application, collect Data format it according to backend Requirements and then will send it to backend APIs
+...................................................................................
+Connect Monoo db with NodeJs
+
+  A mongo deb driver ie=s essential when connecting node js with mongo db because it acts between your nodejs appliction  and MongoDB
+
+  MongoDB speaks  its own language (protocol) to intract with tha databse server
+
+  Node js communicates in javascript.
+
+  the driver translate the javascript code from Node js into a format that Mongodb can understand  and vice versa.
+
+  the most populer driver is the official MongoDB Node.js Driveer also knowmna s the mongo db package.
+
+  The driver provides a set of function and methods that make it easier  to perform common databse operation from your Node js code.
+
+  npm install mongodb
+ 
+
+.............................................................................
+Mongoose..
+  Now but we are going to use Mongoose , rather than mongodb.
+
+  Mongoose is an Object Data MOdeling(ODM) library for mongo db and nodejs.
+
+  things are lots easier than mongodb
+
+  Mongoose is like a translater between your Nodejs code and Mongobd . It makes working with the database smoother and easier.
+
+
+Database connection
+Connect Mongodb with Nodejs
+  the db.js file you rae created is essentially responsible for esaablishing a connection bewtween your Nodejs  Applicationand your Mongodb database using the Mongoose library 
+
+................................................................................
+
+about the db.js
+ the db.js file acts as a central module that manges the connection to your Mongodb database using Mongoose. It sets up the connection , handles connection events , and exports the connection object so that your Express.js server( or other parts of your application )can use it to intract with the databse.
+        When your server runs , it typically requires or imports this db.js file to esablish the databse connection before handling HTTP requests.
+
+...................................................................................
+Async and await====>>>>
+  async and await are features in javascript that make it easier to work with asynchronus code. such as network requests , file system operation , or database queries.
+
+  Using try and catch block.
+
+  The try block contains the code for creating a new Person document and saving it to the database using await  newPerson.server().
+
+  If an error occurs during any step, it is caught in the catch block, and an error response is sent with a 500 internal error status.  
+
+Async Function(async):
+  An async function is a function that is designed to work with asynchronus operations.You declare a function as a async by placing tge async keyword before the function declartion.
+
+  The primary purpose of an async function is to allow you to use the await keyword inside it , which simpliflies working with promise and asynchronus code.
+
+  Inside an async function , you can use an await to pause the execution of the fnction until a promise is resolved. This makes the code appear more synchronus and easier to read.
+
+Await(await):-
+  The await keyword is used inside an asynchronus function to wait fir the resolution of a promise. It can only be used with an async function .
+
+  When awit is used , the function pauses at the line untill the promise is resolved
+  
+ 
