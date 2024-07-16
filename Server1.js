@@ -6,6 +6,10 @@ const express = require('express')
 
 const db = require('./db');
 
+require('dotenv').config();
+
+const PORT = process.env.PORT || 3000;
+
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());   // req.body
 
@@ -18,11 +22,6 @@ app.get('/',  (req, res)=>{
 })
 
 
-// app.post('/items', (req, res)=>{
-//   console.log("Data base is saved");
-// })
-
-
 
 // Import the router file
 const personRoutes = require('./routes/personRoutes');
@@ -31,7 +30,7 @@ const menuItemRoutes = require('./routes/menuItemRoutes');
 // Use the routers
 app.use('/person', personRoutes);
 app.use('/menu', menuItemRoutes);
-
+ 
 
 // to give a port number in our localhost
 app.listen(3000, () => {

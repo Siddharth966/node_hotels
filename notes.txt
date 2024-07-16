@@ -245,4 +245,13 @@ Await(await):-
 
   When awit is used , the function pauses at the line untill the promise is resolved
   
+
+Dotenv
+  The dotnev module in the Node.js is used manage comfiguratin variables and sensitive information in your application.
+
+  It,s particularly useful for keeping sensitive data like API keys , database connection strings, and other environment specific configuration seperate from your code.
+   
+   npm install dotenv
+   
+  
  
